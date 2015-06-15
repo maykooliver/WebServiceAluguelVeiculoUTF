@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{05CB33EE-D511-4932-AC90-803AEC75F2A9}</ProjectGuid>
+    <ProjectGuid>{96CB2CAA-19CB-4B4B-BE57-6AE8CE7DD4FD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AluguelVeiculosUTF_Cliente</RootNamespace>
-    <AssemblyName>AluguelVeiculosUTF-Cliente</AssemblyName>
+    <RootNamespace>WindowsFormsApplication1</RootNamespace>
+    <AssemblyName>WindowsFormsApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,53 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlugarCarro.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlugarCarro.Designer.cs">
-      <DependentUpon>AlugarCarro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultarCarros.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultarCarros.Designer.cs">
-      <DependentUpon>ConsultarCarros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CriarConta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CriarConta.Designer.cs">
-      <DependentUpon>CriarConta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DevolverCarro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DevolverCarro.Designer.cs">
-      <DependentUpon>DevolverCarro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OpcoesOperacoes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OpcoesOperacoes.Designer.cs">
-      <DependentUpon>OpcoesOperacoes.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AlugarCarro.resx">
-      <DependentUpon>AlugarCarro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultarCarros.resx">
-      <DependentUpon>ConsultarCarros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CriarConta.resx">
-      <DependentUpon>CriarConta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DevolverCarro.resx">
-      <DependentUpon>DevolverCarro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OpcoesOperacoes.resx">
-      <DependentUpon>OpcoesOperacoes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

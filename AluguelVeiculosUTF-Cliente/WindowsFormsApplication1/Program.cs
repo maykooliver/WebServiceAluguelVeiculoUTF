@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AluguelVeiculosUTF_Cliente
+namespace WindowsFormsApplication1
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace AluguelVeiculosUTF_Cliente
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AlugarCarro());
+            Application.Run(new Form1());
         }
     }
 }
