@@ -32,22 +32,23 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 69);
+            this.label1.Location = new System.Drawing.Point(12, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Consulta de veículos para locação";
+            this.label1.Text = "Nome:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 94);
+            this.textBox2.Location = new System.Drawing.Point(116, 94);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(414, 20);
+            this.textBox2.Size = new System.Drawing.Size(310, 20);
             this.textBox2.TabIndex = 4;
             // 
             // label2
@@ -68,11 +69,21 @@
             this.button2.Text = "Confirmar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 13);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Informe seus nome:";
+            // 
             // CriarConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 185);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
@@ -90,5 +101,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }
