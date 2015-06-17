@@ -25,6 +25,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.jws.WebService;
 
 /**
  *
@@ -41,6 +42,8 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
      * @throws RemoteException
      * @throws AlreadyBoundException 
      */
+    
+    @WebService(endpointInterface = "aluguelveiculosutf.webservice.interfaceWebServ")
     public ServImpl() throws RemoteException, AlreadyBoundException
     {
         listaLocadores = new ArrayList<>();
@@ -88,6 +91,7 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
     }
 
     @Override
+    
     public boolean regInteresseVeic(String modeloVeic, float valor, InterfaceCli ref) throws RemoteException {
         Interessado inter = new Interessado(modeloVeic, valor, ref);
         listaInteressados.add(inter);

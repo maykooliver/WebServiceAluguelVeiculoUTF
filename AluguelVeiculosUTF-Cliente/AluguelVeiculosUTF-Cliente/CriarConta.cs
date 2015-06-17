@@ -16,5 +16,10 @@ namespace AluguelVeiculosUTF_Cliente
         {
             InitializeComponent();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
