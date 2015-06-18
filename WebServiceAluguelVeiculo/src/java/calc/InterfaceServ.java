@@ -1,8 +1,4 @@
-package aluguelveiculosutf.interfaces;
-
-import aluguelveiculosutf.servidor.Veiculo;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+package calc;
 import java.util.ArrayList;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -14,7 +10,7 @@ import javax.jws.soap.SOAPBinding;
  */
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface InterfaceServ extends Remote{
+public interface InterfaceServ{
     
     /**
      * Devolver Veículo.
@@ -24,7 +20,7 @@ public interface InterfaceServ extends Remote{
      * @return 
      * @throws java.rmi.RemoteException
      */
-    @WebMethod public boolean devolverVeiculo(String nomeCli, InterfaceCli ref) throws RemoteException;
+    @WebMethod public boolean devolverVeiculo(String nomeCli/*, InterfaceCli ref*/);
 
     /**
      * Alugar Veículo.
@@ -42,7 +38,7 @@ public interface InterfaceServ extends Remote{
      * @return 
      * @throws java.rmi.RemoteException 
      */
-    @WebMethod public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas, InterfaceCli ref) throws RemoteException;
+    @WebMethod public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas/*, InterfaceCli ref*/);
 
     /**
      * Registrar Interesse de Veículo.
@@ -52,7 +48,7 @@ public interface InterfaceServ extends Remote{
      * @return 
      * @throws java.rmi.RemoteException 
      */
-    @WebMethod public boolean regInteresseVeic(String modeloVeic, float valor, InterfaceCli ref) throws RemoteException;
+    @WebMethod public boolean regInteresseVeic(String modeloVeic, float valor/*, InterfaceCli ref*/);
 
     /**
      * Solicitar Formulário de Locação.
@@ -61,7 +57,7 @@ public interface InterfaceServ extends Remote{
      * @return 
      * @throws java.rmi.RemoteException 
      */
-    @WebMethod public boolean solicitacaoFormLocacao(String modeloVeic, InterfaceCli ref) throws RemoteException;
+    @WebMethod public boolean solicitacaoFormLocacao(String modeloVeic/*, InterfaceCli ref*/);
 
     /**
      * Novo Cliente Conectado.
@@ -69,13 +65,13 @@ public interface InterfaceServ extends Remote{
      * @param nomeCli 
      * @throws java.rmi.RemoteException 
      */
-    @WebMethod public void novoClienteConectado(String nomeCli) throws RemoteException;
+    @WebMethod public void novoClienteConectado(String nomeCli);
     
     /**
      *
      * @return
      * @throws RemoteException
      */
-    @WebMethod public ArrayList<Veiculo> consultarVeiculos() throws RemoteException;
+    @WebMethod public ArrayList<Veiculo> consultarVeiculos();
     
 }

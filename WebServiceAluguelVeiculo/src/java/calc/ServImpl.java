@@ -8,20 +8,10 @@
  *  veículo substituirá o primeiro.
  */
 
-package aluguelveiculosutf.impl;
-
-import aluguelveiculosutf.interfaces.InterfaceCli;
-import aluguelveiculosutf.interfaces.InterfaceServ;
-import aluguelveiculosutf.servidor.Interessado;
-import aluguelveiculosutf.servidor.Locador;
-import aluguelveiculosutf.servidor.ServicosServ;
-import static aluguelveiculosutf.servidor.ServicosServ.listaVeiculo;
-import aluguelveiculosutf.servidor.Veiculo;
+package calc;
+import static calc.ServicosServ.listaVeiculo;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,10 +21,16 @@ import javax.jws.WebService;
  *
  * @author Lucas
  */
-public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
+@WebService(endpointInterface = "calc.InterfaceServ")
+public class ServImpl{
     
     public static ArrayList<Locador> listaLocadores;
     public static ArrayList<Interessado> listaInteressados;
+
+    public ServImpl() {
+        ServicosServ.inserirVeiculos();
+    }
+
     
     /**
      * Implementação do servidor.
@@ -43,7 +39,9 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
      * @throws AlreadyBoundException 
      */
     
-    public ServImpl() throws RemoteException, AlreadyBoundException
+    
+    
+    /*public ServImpl() throws RemoteException, AlreadyBoundException
     {
         listaLocadores = new ArrayList<>();
         listaInteressados = new ArrayList<>();
@@ -65,12 +63,11 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
             System.out.println(e.getMessage());
             System.exit(0);
         }        
-    }
+    }*/
 
-     @Override
-    public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas, InterfaceCli ref) throws RemoteException {
+    public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas/*, InterfaceCli ref*/){
 
-        Locador locador = new Locador(modeloVeiculoLocado, locRetirada, locDevolucao, dataIni, horaInicio, dataTerm, horaFim, condutor, idade, numeroParcelas, ref) ;
+        Locador locador = new Locador(modeloVeiculoLocado, locRetirada, locDevolucao, dataIni, horaInicio, dataTerm, horaFim, condutor, idade, numeroParcelas/*, ref*/) ;
         
         listaLocadores.add(locador);
 
@@ -88,17 +85,14 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
         
         return true;
     }
-
-    @Override
     
-    public boolean regInteresseVeic(String modeloVeic, float valor, InterfaceCli ref) throws RemoteException {
-        Interessado inter = new Interessado(modeloVeic, valor, ref);
+    public boolean regInteresseVeic(String modeloVeic, float valor/*, InterfaceCli ref*/){
+        Interessado inter = new Interessado(modeloVeic, valor/*, ref*/);
         listaInteressados.add(inter);
         return true;
     }
 
-    @Override
-    public boolean solicitacaoFormLocacao(String modeloVeic, InterfaceCli ref) throws RemoteException {
+    public boolean solicitacaoFormLocacao(String modeloVeic/*, InterfaceCli ref*/) {
         int indice = 0;
         
         for (Veiculo veiculo: listaVeiculo){
@@ -116,8 +110,7 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
         return false;
     }
 
-    @Override
-    public boolean devolverVeiculo(String nomeCli, InterfaceCli ref) throws RemoteException {
+    public boolean devolverVeiculo(String nomeCli/*, InterfaceCli ref*/){
         
         try {
             int indice = 0;
@@ -159,26 +152,24 @@ public class ServImpl extends UnicastRemoteObject implements InterfaceServ{
         return false;
     }
 
-    @Override
-    public void novoClienteConectado(String nomeCli) throws RemoteException{
+    public void novoClienteConectado(String nomeCli){
         System.out.println("Novo cliente conectado: " + nomeCli);
     }
 
-    @Override
-    public ArrayList<Veiculo> consultarVeiculos() throws RemoteException {
+    public ArrayList<Veiculo> consultarVeiculos(){
         ArrayList<Veiculo> listaVeiculos;
         listaVeiculos = ServicosServ.getListaVeiculo();
         return listaVeiculos;
     }
     
-    public static void notificarCarro(String modelo, InterfaceCli ref){
-        InterfaceCli refCli = ref;
-        String msg = "Carro " + modelo + " já está disponível na margem de valor desejado.";
-        try {
-            refCli.notifCarroDisp(msg);
-        } catch (RemoteException ex) {
-            Logger.getLogger(ServImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public static void notificarCarro(String modelo, InterfaceCli ref){
+//        InterfaceCli refCli = ref;
+//        String msg = "Carro " + modelo + " já está disponível na margem de valor desejado.";
+//        try {
+//            refCli.notifCarroDisp(msg);
+//        } catch (RemoteException ex) {
+//            Logger.getLogger(ServImpl.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
 }
