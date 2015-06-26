@@ -15,6 +15,34 @@ namespace AluguelVeiculosUTF_Cliente
         public ConsultarCarros()
         {
             InitializeComponent();
+            try
+            {
+                WebServiceAluguelVeiculo.InterfaceServClient veiculos = new WebServiceAluguelVeiculo.InterfaceServClient();
+
+                //veiculos.consultarVeiculos;
+
+                //foreach (AluguelVeiculosUTF_Cliente.)
+                //{
+                //    count += 1;
+                //    System.Console.WriteLine("Element #{0}: {1}", count, element);
+                //}
+
+                //double dFahrenheit = Convert.ToDouble(TextBox1.Text);
+                //double dCelsius = ws.ConvertTemperature(dFahrenheit);
+                //menssagemErro.Text = dCelsius.ToString();
+            }
+            catch
+            {
+                menssagemErro.Text = "Conversion failed.";
+            }
+            //ArrayList<Veiculo> listaVeiculo;
+            //listaVeiculo = cliImpl.consultarVeiculo();
+            //System.out.println(listaVeiculo.toString());
+
+            //String disponibilidade;
+            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,6 +56,16 @@ namespace AluguelVeiculosUTF_Cliente
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConsultarCarros_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConsultarCarros_Load_1(object sender, EventArgs e)
         {
 
         }

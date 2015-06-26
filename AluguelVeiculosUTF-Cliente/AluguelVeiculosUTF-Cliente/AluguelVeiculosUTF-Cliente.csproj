@@ -79,6 +79,12 @@
     <Compile Include="OpcoesOperacoes.Designer.cs">
       <DependentUpon>OpcoesOperacoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WebServiceAluguelVeiculo\Reference.cs">
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OpcoesOperacoes.resx">
       <DependentUpon>OpcoesOperacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

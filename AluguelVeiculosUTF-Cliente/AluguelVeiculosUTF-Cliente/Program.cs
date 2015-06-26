@@ -16,7 +16,7 @@ namespace AluguelVeiculosUTF_Cliente
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CriarConta());
+            Application.Run(new Principal());
         }
     }
 }
