@@ -1,0 +1,18 @@
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\ResolveAssemblyReference.cache
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\TesteMeuWebService.Form1.resources
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\TesteMeuWebService.Properties.Resources.resources
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\TesteMeuWebService.csproj.GenerateResource.Cache
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\bin\Debug\TesteMeuWebService.exe.config
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\bin\Debug\TesteMeuWebService.exe
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\bin\Debug\TesteMeuWebService.pdb
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\TesteMeuWebService.exe
+D:\Visual Studio 2005\Projects\wsMeuWebService\TesteMeuWebService\obj\Debug\TesteMeuWebService.pdb
+D:\Exemplos\TesteMeuWebService\bin\Debug\TesteMeuWebService.exe.config
+D:\Exemplos\TesteMeuWebService\obj\Debug\TesteMeuWebService.exe
+D:\Exemplos\TesteMeuWebService\obj\Debug\TesteMeuWebService.pdb
+D:\Exemplos\TesteMeuWebService\bin\Debug\TesteMeuWebService.exe
+D:\Exemplos\TesteMeuWebService\bin\Debug\TesteMeuWebService.pdb
+D:\Exemplos\TesteMeuWebService\obj\Debug\ResolveAssemblyReference.cache
+D:\Exemplos\TesteMeuWebService\obj\Debug\TesteMeuWebService.Form1.resources
+D:\Exemplos\TesteMeuWebService\obj\Debug\TesteMeuWebService.Properties.Resources.resources
+D:\Exemplos\TesteMeuWebService\obj\Debug\TesteMeuWebService.csproj.GenerateResource.Cache

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,11 @@ namespace AluguelVeiculosUTF_Cliente
             InitializeComponent();
             try
             {
-                WebServiceAluguelVeiculo.InterfaceServClient veiculos = new WebServiceAluguelVeiculo.InterfaceServClient();
+                //WebServiceAluguelVeiculo.InterfaceServClient. veiculos = new WebServiceAluguelVeiculo.InterfaceServClient.;
+
+                ArrayList listaTeste = new ArrayList();
+
+                //listaTeste = veiculos.consultarVeiculos();
 
                 //veiculos.consultarVeiculos;
 

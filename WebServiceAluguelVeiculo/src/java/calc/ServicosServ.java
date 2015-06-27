@@ -61,6 +61,8 @@ public class ServicosServ {
         Veiculo veiculo4 = new Veiculo("Siena", "Fiat", 2015, 200, false);
         listaVeiculo.add(veiculo4);
         
+        Serializa.serializaVeiculos(listaVeiculo);
+        
         
 //        Serializa serializa = new Serializa();
 //        String msg = "Veículo cadastrado com sucesso!";

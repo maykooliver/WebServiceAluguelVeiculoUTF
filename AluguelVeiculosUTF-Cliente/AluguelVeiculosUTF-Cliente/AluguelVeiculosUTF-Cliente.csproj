@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializando.cs" />
     <Compile Include="Service References\WebServiceAluguelVeiculo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

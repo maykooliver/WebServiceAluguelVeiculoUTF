@@ -15,22 +15,6 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://calc/", ConfigurationName="WebServiceAluguelVeiculo.InterfaceServ")]
     public interface InterfaceServ {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        bool solicitacaoFormLocacao(string arg0);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<bool> solicitacaoFormLocacaoAsync(string arg0);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        void novoClienteConectado(string arg0);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
-        System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
@@ -40,6 +24,24 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList> consultarVeiculosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool solicitacaoFormLocacao(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> solicitacaoFormLocacaoAsync(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
+        void novoClienteConectado(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
+        System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
@@ -138,6 +140,14 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
                 base(binding, remoteAddress) {
         }
         
+        public AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList consultarVeiculos() {
+            return base.Channel.consultarVeiculos();
+        }
+        
+        public System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList> consultarVeiculosAsync() {
+            return base.Channel.consultarVeiculosAsync();
+        }
+        
         public bool solicitacaoFormLocacao(string arg0) {
             return base.Channel.solicitacaoFormLocacao(arg0);
         }
@@ -152,14 +162,6 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
         
         public System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0) {
             return base.Channel.novoClienteConectadoAsync(arg0);
-        }
-        
-        public AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList consultarVeiculos() {
-            return base.Channel.consultarVeiculos();
-        }
-        
-        public System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList> consultarVeiculosAsync() {
-            return base.Channel.consultarVeiculosAsync();
         }
         
         public bool devolverVeiculo(string arg0) {

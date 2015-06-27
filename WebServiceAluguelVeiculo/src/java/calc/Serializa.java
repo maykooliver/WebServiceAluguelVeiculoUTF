@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Serializa {
 
-    public String serializaVeiculos(ArrayList<Veiculo> listaVeiculo){
+    public static String serializaVeiculos(ArrayList<Veiculo> listaVeiculo){
         try {
             Gson gson = new Gson();
             String mensagem = gson.toJson(listaVeiculo);
@@ -24,7 +24,7 @@ public class Serializa {
         return null;
     }
 
-    public ArrayList<Veiculo> descerializaVeiculos(String json){
+    public static ArrayList<Veiculo> descerializaVeiculos(String json){
         ArrayList<Veiculo> listaVeiculo = new ArrayList<>();
         try {
             Gson gson = new Gson();

@@ -5,6 +5,10 @@
       <xsd:import schemaLocation="http://127.0.0.1:9876/calc?xsd=1" namespace="http://calc/" />
     </xsd:schema>
   </types>
+  <message name="consultarVeiculos" />
+  <message name="consultarVeiculosResponse">
+    <part name="return" type="tns:arrayList" />
+  </message>
   <message name="solicitacaoFormLocacao">
     <part name="arg0" type="xsd:string" />
   </message>
@@ -15,10 +19,6 @@
     <part name="arg0" type="xsd:string" />
   </message>
   <message name="novoClienteConectadoResponse" />
-  <message name="consultarVeiculos" />
-  <message name="consultarVeiculosResponse">
-    <part name="return" type="tns:arrayList" />
-  </message>
   <message name="devolverVeiculo">
     <part name="arg0" type="xsd:string" />
   </message>
@@ -48,6 +48,10 @@
     <part name="return" type="xsd:boolean" />
   </message>
   <portType name="InterfaceServ">
+    <operation name="consultarVeiculos">
+      <input wsam:Action="http://calc/InterfaceServ/consultarVeiculosRequest" message="tns:consultarVeiculos" />
+      <output wsam:Action="http://calc/InterfaceServ/consultarVeiculosResponse" message="tns:consultarVeiculosResponse" />
+    </operation>
     <operation name="solicitacaoFormLocacao">
       <input wsam:Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest" message="tns:solicitacaoFormLocacao" />
       <output wsam:Action="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse" message="tns:solicitacaoFormLocacaoResponse" />
@@ -55,10 +59,6 @@
     <operation name="novoClienteConectado">
       <input wsam:Action="http://calc/InterfaceServ/novoClienteConectadoRequest" message="tns:novoClienteConectado" />
       <output wsam:Action="http://calc/InterfaceServ/novoClienteConectadoResponse" message="tns:novoClienteConectadoResponse" />
-    </operation>
-    <operation name="consultarVeiculos">
-      <input wsam:Action="http://calc/InterfaceServ/consultarVeiculosRequest" message="tns:consultarVeiculos" />
-      <output wsam:Action="http://calc/InterfaceServ/consultarVeiculosResponse" message="tns:consultarVeiculosResponse" />
     </operation>
     <operation name="devolverVeiculo">
       <input wsam:Action="http://calc/InterfaceServ/devolverVeiculoRequest" message="tns:devolverVeiculo" />
@@ -75,6 +75,15 @@
   </portType>
   <binding name="ServImplPortBinding" type="tns:InterfaceServ">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="consultarVeiculos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://calc/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://calc/" />
+      </output>
+    </operation>
     <operation name="solicitacaoFormLocacao">
       <soap:operation soapAction="" />
       <input>
@@ -85,15 +94,6 @@
       </output>
     </operation>
     <operation name="novoClienteConectado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" namespace="http://calc/" />
-      </input>
-      <output>
-        <soap:body use="literal" namespace="http://calc/" />
-      </output>
-    </operation>
-    <operation name="consultarVeiculos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" namespace="http://calc/" />
