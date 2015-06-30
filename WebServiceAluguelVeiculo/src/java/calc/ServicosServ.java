@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class ServicosServ {
 
     private static ServicosServ instancia;
-    public static ArrayList<Veiculo> listaVeiculo = new ArrayList<>();
+    public static Veiculo [] listaVeiculo;
 
 
     private ServicosServ(){
@@ -21,7 +21,7 @@ public class ServicosServ {
      *
      * @return
      */
-    public static ArrayList<Veiculo> getListaVeiculo() {
+    public static Veiculo [] getListaVeiculo() {
         return listaVeiculo;
     }
 
@@ -29,7 +29,7 @@ public class ServicosServ {
      *
      * @param listaVeiculo
      */
-    public void setListaVeiculo(ArrayList<Veiculo> listaVeiculo) {
+    public void setListaVeiculo(Veiculo [] listaVeiculo) {
         ServicosServ.listaVeiculo = listaVeiculo;
     }
 
@@ -50,18 +50,18 @@ public class ServicosServ {
      */
     public static void inserirVeiculos() {
         Veiculo veiculo1 = new Veiculo("Uno", "Fiat", 2015, 200, false);
-        listaVeiculo.add(veiculo1);
+        listaVeiculo[0] = veiculo1;
         
         Veiculo veiculo2 = new Veiculo("Idea", "Fiat", 2015, 200, false);
-        listaVeiculo.add(veiculo2);
+        listaVeiculo[1] = veiculo1;
         
         Veiculo veiculo3 = new Veiculo("Doblo", "Fiat", 2015, 200, false);
-        listaVeiculo.add(veiculo3);
+        listaVeiculo[2] = veiculo1;
         
         Veiculo veiculo4 = new Veiculo("Siena", "Fiat", 2015, 200, false);
-        listaVeiculo.add(veiculo4);
+        listaVeiculo[3] = veiculo1;
         
-        Serializa.serializaVeiculos(listaVeiculo);
+        //Serializa.serializaVeiculos(listaVeiculo);
         
         
 //        Serializa serializa = new Serializa();
@@ -88,14 +88,14 @@ public class ServicosServ {
      */
     public static void editarVeiculo(int indice, boolean reqCliente, Veiculo veiculo) {
         indice = indice - 1;
-        listaVeiculo.set(indice, veiculo);
-        if(!reqCliente){
-            String msg = "Veículo editado com sucesso!";
-            JOptionPane.showMessageDialog(null, msg);
-        }
-        
-        Serializa serializa = new Serializa();
-        serializa.serializaVeiculos(listaVeiculo);
+//        listaVeiculo.set(indice, veiculo);
+//        if(!reqCliente){
+//            String msg = "Veículo editado com sucesso!";
+//            JOptionPane.showMessageDialog(null, msg);
+//        }
+//        
+//        Serializa serializa = new Serializa();
+//        serializa.serializaVeiculos(listaVeiculo);
             
 //        int i = 0;
         
@@ -115,20 +115,20 @@ public class ServicosServ {
      * @param modeloVeiculo
      * @return
      */
-    public static Veiculo buscarVeiculo(String modeloVeiculo) {
-        Veiculo veiculo = null;
-        try {
-            veiculo = listaVeiculo.
-                    stream().
-                    filter(v -> (v.getModelo() == null ? modeloVeiculo == null
-                                    : v.getModelo().equals(modeloVeiculo))).
-                    findFirst().get();
-        } catch (NoSuchElementException e) {
-            String msg = "Veículo não cadastrado!";
-            JOptionPane.showMessageDialog(null, msg);
-        }
-
-        return veiculo;
-    }
+//    public static Veiculo buscarVeiculo(String modeloVeiculo) {
+//        Veiculo veiculo = null;
+//        try {
+//            veiculo = listaVeiculo.
+//                    stream().
+//                    filter(v -> (v.getModelo() == null ? modeloVeiculo == null
+//                                    : v.getModelo().equals(modeloVeiculo))).
+//                    findFirst().get();
+//        } catch (NoSuchElementException e) {
+//            String msg = "Veículo não cadastrado!";
+//            JOptionPane.showMessageDialog(null, msg);
+//        }
+//
+//        return veiculo;
+//    }
 
 }

@@ -156,9 +156,10 @@ public class ServImpl{
         System.out.println("Novo cliente conectado: " + nomeCli);
     }
 
-    public ArrayList<Veiculo> consultarVeiculos(){
-        ArrayList<Veiculo> listaVeiculos;
+    public Veiculo[] consultarVeiculos(){
+        Veiculo[] listaVeiculos;
         listaVeiculos = ServicosServ.getListaVeiculo();
+        
         return listaVeiculos;
     }
     
