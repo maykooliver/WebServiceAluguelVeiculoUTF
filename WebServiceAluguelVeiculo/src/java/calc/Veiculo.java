@@ -23,14 +23,15 @@ public class Veiculo implements java.io.Serializable{
         this.valorLocacao = valorLocacao;
         this.ocupado = ocupado;
     }
-    
-    
 
     @Override
     public String toString() {
-        return "Veiculo{" + "modelo=" + getModelo() + ", marca=" + getMarca() + ", ano=" + getAno() + ", valorLocacao=" + getValorLocacao() + '}';
+        return "Veiculo{" + "modelo=" + modelo + ", marca=" + marca + ", ano=" + ano + ", valorLocacao=" + valorLocacao + ", ocupado=" + ocupado + '}';
     }
+    
+    
 
+    
     /**
      * @return the modelo
      */

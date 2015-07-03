@@ -13,6 +13,7 @@ import static calc.ServicosServ.listaVeiculo;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jws.WebService;
@@ -111,7 +112,7 @@ public class ServImpl{
     }
 
     public boolean devolverVeiculo(String nomeCli/*, InterfaceCli ref*/){
-        
+      
         try {
             int indice = 0;
             
@@ -156,9 +157,15 @@ public class ServImpl{
         System.out.println("Novo cliente conectado: " + nomeCli);
     }
 
-    public Veiculo[] consultarVeiculos(){
-        Veiculo[] listaVeiculos;
-        listaVeiculos = ServicosServ.getListaVeiculo();
+    public String[] consultarVeiculos(){
+        String[] listaVeiculos = new String[4];
+        
+        int i = 0;
+        
+        for(Veiculo veiculo: ServicosServ.getListaVeiculo()){
+            listaVeiculos[i] = veiculo.getModelo();
+            i++;
+        }
         
         return listaVeiculos;
     }

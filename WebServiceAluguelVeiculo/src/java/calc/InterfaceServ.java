@@ -72,6 +72,6 @@ public interface InterfaceServ{
      * @return
      * @throws RemoteException
      */
-    @WebMethod public ArrayList<Veiculo> consultarVeiculos();
+    @WebMethod public String[] consultarVeiculos();
     
 }

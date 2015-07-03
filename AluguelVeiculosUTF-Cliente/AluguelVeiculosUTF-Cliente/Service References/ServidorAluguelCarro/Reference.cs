@@ -8,26 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
+namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://calc/", ConfigurationName="WebServiceAluguelVeiculo.InterfaceServ")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://calc/", ConfigurationName="ServidorAluguelCarro.InterfaceServ")]
     public interface InterfaceServ {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList consultarVeiculos();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList> consultarVeiculosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         bool solicitacaoFormLocacao(string arg0);
         
@@ -37,25 +26,22 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
         void novoClienteConectado(string arg0);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
         System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        bool devolverVeiculo(string arg0);
+        AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse consultarVeiculos(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0);
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
+        System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse> consultarVeiculosAsync(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/alugarVeicRequest", ReplyAction="http://calc/InterfaceServ/alugarVeicResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         bool alugarVeic(string arg0, string arg1, string arg2, string arg3, string arg4, string arg5, string arg6, string arg7, int arg8, string arg9);
         
@@ -65,61 +51,59 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(abstractCollection))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         bool regInteresseVeic(string arg0, float arg1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1);
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://calc/")]
-    public partial class arrayList : abstractList {
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(arrayList))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://calc/")]
-    public abstract partial class abstractList : abstractCollection {
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(abstractList))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(arrayList))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.57.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://calc/")]
-    public abstract partial class abstractCollection : object, System.ComponentModel.INotifyPropertyChanged {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool devolverVeiculo(string arg0);
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarVeiculos", WrapperNamespace="http://calc/", IsWrapped=true)]
+    public partial class consultarVeiculosRequest {
+        
+        public consultarVeiculosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="consultarVeiculosResponse", WrapperNamespace="http://calc/", IsWrapped=true)]
+    public partial class consultarVeiculosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        [System.Xml.Serialization.XmlArrayAttribute()]
+        [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] @return;
+        
+        public consultarVeiculosResponse() {
+        }
+        
+        public consultarVeiculosResponse(string[] @return) {
+            this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface InterfaceServChannel : AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.InterfaceServ, System.ServiceModel.IClientChannel {
+    public interface InterfaceServChannel : AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class InterfaceServClient : System.ServiceModel.ClientBase<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.InterfaceServ>, AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.InterfaceServ {
+    public partial class InterfaceServClient : System.ServiceModel.ClientBase<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ>, AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ {
         
         public InterfaceServClient() {
         }
@@ -140,14 +124,6 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
                 base(binding, remoteAddress) {
         }
         
-        public AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList consultarVeiculos() {
-            return base.Channel.consultarVeiculos();
-        }
-        
-        public System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo.arrayList> consultarVeiculosAsync() {
-            return base.Channel.consultarVeiculosAsync();
-        }
-        
         public bool solicitacaoFormLocacao(string arg0) {
             return base.Channel.solicitacaoFormLocacao(arg0);
         }
@@ -164,12 +140,25 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
             return base.Channel.novoClienteConectadoAsync(arg0);
         }
         
-        public bool devolverVeiculo(string arg0) {
-            return base.Channel.devolverVeiculo(arg0);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ.consultarVeiculos(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request) {
+            return base.Channel.consultarVeiculos(request);
         }
         
-        public System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0) {
-            return base.Channel.devolverVeiculoAsync(arg0);
+        public string[] consultarVeiculos() {
+            AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest inValue = new AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest();
+            AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse retVal = ((AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ)(this)).consultarVeiculos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse> AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ.consultarVeiculosAsync(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request) {
+            return base.Channel.consultarVeiculosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse> consultarVeiculosAsync() {
+            AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest inValue = new AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest();
+            return ((AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ)(this)).consultarVeiculosAsync(inValue);
         }
         
         public bool alugarVeic(string arg0, string arg1, string arg2, string arg3, string arg4, string arg5, string arg6, string arg7, int arg8, string arg9) {
@@ -186,6 +175,14 @@ namespace AluguelVeiculosUTF_Cliente.WebServiceAluguelVeiculo {
         
         public System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1) {
             return base.Channel.regInteresseVeicAsync(arg0, arg1);
+        }
+        
+        public bool devolverVeiculo(string arg0) {
+            return base.Channel.devolverVeiculo(arg0);
+        }
+        
+        public System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0) {
+            return base.Channel.devolverVeiculoAsync(arg0);
         }
     }
 }

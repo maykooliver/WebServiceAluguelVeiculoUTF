@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 public class ServicosServ {
 
     private static ServicosServ instancia;
-    public static Veiculo [] listaVeiculo;
-
+    public static Veiculo [] listaVeiculo = new Veiculo[4];
 
     private ServicosServ(){
     }
@@ -25,10 +24,7 @@ public class ServicosServ {
         return listaVeiculo;
     }
 
-    /**
-     *
-     * @param listaVeiculo
-     */
+    
     public void setListaVeiculo(Veiculo [] listaVeiculo) {
         ServicosServ.listaVeiculo = listaVeiculo;
     }
@@ -44,22 +40,25 @@ public class ServicosServ {
         return instancia;
     }
 
-    /**
-     *
-     * @param veiculo
-     */
+    
     public static void inserirVeiculos() {
+//        listaVeiculo = null;
+        
         Veiculo veiculo1 = new Veiculo("Uno", "Fiat", 2015, 200, false);
         listaVeiculo[0] = veiculo1;
         
         Veiculo veiculo2 = new Veiculo("Idea", "Fiat", 2015, 200, false);
-        listaVeiculo[1] = veiculo1;
+        listaVeiculo[1] = veiculo2;
         
         Veiculo veiculo3 = new Veiculo("Doblo", "Fiat", 2015, 200, false);
-        listaVeiculo[2] = veiculo1;
+        listaVeiculo[2] = veiculo3;
         
         Veiculo veiculo4 = new Veiculo("Siena", "Fiat", 2015, 200, false);
-        listaVeiculo[3] = veiculo1;
+        listaVeiculo[3] = veiculo4;
+        
+        for(Veiculo veiculo: listaVeiculo){
+            System.out.println(veiculo.toString());
+        }
         
         //Serializa.serializaVeiculos(listaVeiculo);
         
@@ -80,12 +79,7 @@ public class ServicosServ {
 //        
 //    }
 
-    /**
-     *
-     * @param indice
-     * @param reqCliente
-     * @param veiculo
-     */
+    
     public static void editarVeiculo(int indice, boolean reqCliente, Veiculo veiculo) {
         indice = indice - 1;
 //        listaVeiculo.set(indice, veiculo);
@@ -110,11 +104,7 @@ public class ServicosServ {
 //        }
     }
 
-    /**
-     *
-     * @param modeloVeiculo
-     * @return
-     */
+    
 //    public static Veiculo buscarVeiculo(String modeloVeiculo) {
 //        Veiculo veiculo = null;
 //        try {
