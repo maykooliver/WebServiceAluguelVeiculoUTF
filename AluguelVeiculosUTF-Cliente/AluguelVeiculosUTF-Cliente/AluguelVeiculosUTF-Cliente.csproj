@@ -54,12 +54,6 @@
     <Compile Include="AlugarCarro.Designer.cs">
       <DependentUpon>AlugarCarro.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsultaCarro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultaCarro.Designer.cs">
-      <DependentUpon>ConsultaCarro.cs</DependentUpon>
-    </Compile>
     <Compile Include="DevolverCarro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +75,6 @@
     </Compile>
     <EmbeddedResource Include="AlugarCarro.resx">
       <DependentUpon>AlugarCarro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultaCarro.resx">
-      <DependentUpon>ConsultaCarro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DevolverCarro.resx">
       <DependentUpon>DevolverCarro.cs</DependentUpon>

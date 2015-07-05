@@ -136,7 +136,7 @@ public class ServImpl{
                 if(veiculo.getModelo().equals(modelo)) {
                     indice =+ 1; //Necessário para corrigir o bug de editarVeiculo;
                     System.out.println("Ocupado? " + veiculo.isOcupado());
-                    veiculo.setOcupado(false);
+                            veiculo.setOcupado(false);
                     System.out.println("Devolver Veiculo: " + veiculo.getModelo());
                     System.out.println("Ocupado? " + veiculo.isOcupado());
                     ServicosServ.editarVeiculo(indice, true, veiculo);
