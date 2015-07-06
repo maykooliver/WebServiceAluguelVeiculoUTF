@@ -30,45 +30,14 @@ public class ServImpl{
 
     public ServImpl() {
         ServicosServ.inserirVeiculos();
+        listaLocadores = new ArrayList<>();
     }
 
     
-    /**
-     * Implementação do servidor.
-     * Construtor.
-     * @throws RemoteException
-     * @throws AlreadyBoundException 
-     */
-    
-    
-    
-    /*public ServImpl() throws RemoteException, AlreadyBoundException
-    {
-        listaLocadores = new ArrayList<>();
-        listaInteressados = new ArrayList<>();
+    public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas){
 
-       try{
-            //Cria o registro para receber as referencias, para a porta 1099, local
-            Registry referenciaServicoNome = LocateRegistry.createRegistry(1099);
-
-            //A classe é associada a um nome para ser acessado externamente
-            //(Registra uma referencia de objeto remoto)
-            referenciaServicoNome.rebind("Locacao de Veiculos", this);
-
-            //Inicia o array de clientes.
-            //contas = new ArrayList<>();
-
-            System.out.println("Serviços de locação de veículos iniciado..\n");
-            
-        }catch(RemoteException e){
-            System.out.println(e.getMessage());
-            System.exit(0);
-        }        
-    }*/
-
-    public boolean alugarVeic(String modeloVeiculoLocado, String locRetirada, String locDevolucao, String dataIni, String horaInicio, String dataTerm, String horaFim, String condutor, int idade, String numeroParcelas/*, InterfaceCli ref*/){
-
-        Locador locador = new Locador(modeloVeiculoLocado, locRetirada, locDevolucao, dataIni, horaInicio, dataTerm, horaFim, condutor, idade, numeroParcelas/*, ref*/) ;
+        Locador locador = new Locador(modeloVeiculoLocado, locRetirada, locDevolucao, dataIni, horaInicio, dataTerm, horaFim, condutor, idade, numeroParcelas) ;
+        System.out.println(locador.toString());
         
         listaLocadores.add(locador);
 
@@ -76,7 +45,7 @@ public class ServImpl{
         
         for (Veiculo veiculo: listaVeiculo){
             if(veiculo.getModelo().equals(modeloVeiculoLocado)){
-                indice =+1; //Apenas para corrigir bug do editarVeiculo
+                //indice =+1; //Apenas para corrigir bug do editarVeiculo
                 veiculo.setOcupado(true);
                 ServicosServ.editarVeiculo(indice, true, veiculo);
             }else{
@@ -87,13 +56,13 @@ public class ServImpl{
         return true;
     }
     
-    public boolean regInteresseVeic(String modeloVeic, float valor/*, InterfaceCli ref*/){
-        Interessado inter = new Interessado(modeloVeic, valor/*, ref*/);
+    public boolean regInteresseVeic(String modeloVeic, float valor){
+        Interessado inter = new Interessado(modeloVeic, valor);
         listaInteressados.add(inter);
         return true;
     }
 
-    public boolean solicitacaoFormLocacao(String modeloVeic/*, InterfaceCli ref*/) {
+    public boolean solicitacaoFormLocacao(String modeloVeic) {
         int indice = 0;
         
         for (Veiculo veiculo: listaVeiculo){
@@ -111,7 +80,7 @@ public class ServImpl{
         return false;
     }
 
-    public boolean devolverVeiculo(String nomeCli/*, InterfaceCli ref*/){
+    public boolean devolverVeiculo(String nomeCli){
       
         try {
             int indice = 0;
@@ -170,14 +139,16 @@ public class ServImpl{
         return listaVeiculos;
     }
     
-//    public static void notificarCarro(String modelo, InterfaceCli ref){
-//        InterfaceCli refCli = ref;
-//        String msg = "Carro " + modelo + " já está disponível na margem de valor desejado.";
-//        try {
-//            refCli.notifCarroDisp(msg);
-//        } catch (RemoteException ex) {
-//            Logger.getLogger(ServImpl.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-
+    public boolean verificaVeiculo(String nomeVeiculo){
+        
+        for(Veiculo veiculo: ServicosServ.getListaVeiculo()){
+            if(veiculo.getModelo().equals(nomeVeiculo)){
+                return veiculo.isOcupado();
+            }
+        }
+        
+        return false;
+    }
+    
+    
 }

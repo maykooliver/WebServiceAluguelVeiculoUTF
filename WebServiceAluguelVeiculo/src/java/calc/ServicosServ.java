@@ -44,16 +44,16 @@ public class ServicosServ {
     public static void inserirVeiculos() {
 //        listaVeiculo = null;
         
-        Veiculo veiculo1 = new Veiculo("Uno", "Fiat", 2015, 200, false);
+        Veiculo veiculo1 = new Veiculo("Fremont", "Fiat", 2015, 200, false);
         listaVeiculo[0] = veiculo1;
         
-        Veiculo veiculo2 = new Veiculo("Idea", "Fiat", 2015, 200, false);
+        Veiculo veiculo2 = new Veiculo("Camaro", "Chevrolet", 2015, 200, false);
         listaVeiculo[1] = veiculo2;
         
-        Veiculo veiculo3 = new Veiculo("Doblo", "Fiat", 2015, 200, false);
+        Veiculo veiculo3 = new Veiculo("Passat", "Volkswagen", 2015, 200, false);
         listaVeiculo[2] = veiculo3;
         
-        Veiculo veiculo4 = new Veiculo("Siena", "Fiat", 2015, 200, false);
+        Veiculo veiculo4 = new Veiculo("Fusion", "Ford", 2015, 200, false);
         listaVeiculo[3] = veiculo4;
         
         for(Veiculo veiculo: listaVeiculo){

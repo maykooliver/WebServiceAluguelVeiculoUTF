@@ -74,4 +74,6 @@ public interface InterfaceServ{
      */
     @WebMethod public String[] consultarVeiculos();
     
+    @WebMethod public boolean verificaVeiculo(String nomeVeiculo);
+    
 }

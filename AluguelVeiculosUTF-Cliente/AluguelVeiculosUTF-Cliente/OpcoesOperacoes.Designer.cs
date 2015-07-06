@@ -81,6 +81,7 @@
             this.Controls.Add(this.label11);
             this.Name = "OpcoesOperacoes";
             this.Text = "OpcoesOperacoes";
+            this.Load += new System.EventHandler(this.OpcoesOperacoes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,5 +16,10 @@ namespace AluguelVeiculosUTF_Cliente
         {
             InitializeComponent();
         }
+
+        private void OpcoesOperacoes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

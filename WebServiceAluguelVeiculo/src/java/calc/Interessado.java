@@ -50,18 +50,5 @@ public class Interessado {
     public void setValor(float valor) {
         this.valor = valor;
     }
-
-    /**
-     * @return the ref
-     */
-//    public InterfaceCli getRefCli() {
-//        return refCli;
-//    }
-//
-//    /**
-//     * @param ref the ref to set
-//     */
-//    public void setRefCli(InterfaceCli ref) {
-//        this.refCli = ref;
-//    }
+    
 }

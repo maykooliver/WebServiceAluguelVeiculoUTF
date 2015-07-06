@@ -13,7 +13,9 @@ namespace AluguelVeiculosUTF_Cliente
 {
     public partial class AlugarCarro : Form
     {
-        String nomeCarro;
+        
+        InterfaceServClient locarCarro = new InterfaceServClient();
+        Boolean veiculoLocado = false;
 
         public AlugarCarro()
         {
@@ -22,6 +24,63 @@ namespace AluguelVeiculosUTF_Cliente
             //nomeCarro = carro;
             
         }
+
+        public void HabilitarBotao()
+        {
+            localRetiradaText.Enabled = true;
+            localDevolucaoText.Enabled = true;
+            dataInicioText.Enabled = true;
+            horarioInicioText.Enabled = true;
+            dataFimText.Enabled = true;
+            horarioFimText.Enabled = true;
+            nomeCondutorText.Enabled = true;
+            idateCondutorText.Enabled = true;
+            listaQuantidadeParcelaBox.Enabled = true;
+        }
+
+        public void DesahabilitarBotao()
+        {
+            localRetiradaText.Enabled = false;
+            localDevolucaoText.Enabled = false;
+            dataInicioText.Enabled = false;
+            horarioInicioText.Enabled = false;
+            dataFimText.Enabled = false;
+            horarioFimText.Enabled = false;
+            nomeCondutorText.Enabled = false;
+            idateCondutorText.Enabled = false;
+            listaQuantidadeParcelaBox.Enabled = false;
+        }
+
+        public void LimparTela()
+        {
+            listaVeiculosBox.SelectedIndex = -1;
+            listaVeiculosBox.Text = " ";
+            localRetiradaText.Text = " ";
+            localDevolucaoText.Text = " ";
+            dataInicioText.Text = " ";
+            horarioInicioText.Text = " ";
+            dataFimText.Text = " ";
+            horarioFimText.Text = " ";
+            nomeCondutorText.Text = " ";
+            idateCondutorText.Text = " ";
+            listaQuantidadeParcelaBox.SelectedIndex = -1;
+            mensagemConsultaCarroText.Text = " ";
+        }
+
+        public bool verificaCarro()
+        {
+            if (locarCarro.verificaVeiculo(listaVeiculosBox.Text))
+            {
+                mensagemConsultaCarroText.Text = "Carro Locado!";
+                return true;
+            }
+            else
+            {
+                mensagemConsultaCarroText.Text = "Carro não Locado!";
+                return false;
+            }
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -75,7 +134,49 @@ namespace AluguelVeiculosUTF_Cliente
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string listaVeiculos = listaVeiculosBox.Text;
+            string localRetirada = localRetiradaText.Text;
+            string localDevolucao = localDevolucaoText.Text;
+            string dataInicio = dataInicioText.Text;
+            string horarioInicio = horarioInicioText.Text;
+            string dataFim = dataFimText.Text;
+            string horarioFim = horarioFimText.Text;
+            string nomeCondutor = nomeCondutorText.Text;
+            int idateCondutor = Convert.ToInt32(idateCondutorText.Text);
+            string listaQuantidadeParcela = listaQuantidadeParcelaBox.Text;
 
+            veiculoLocado = locarCarro.alugarVeic(listaVeiculos, localRetirada, localDevolucao, dataInicio, 
+                horarioInicio, dataFim, horarioFim, nomeCondutor, idateCondutor, listaQuantidadeParcela);
+            DesahabilitarBotao();
+            LimparTela();
+        }
+
+        private void btnAlugarCarro_Click(object sender, EventArgs e)
+        {
+            if (!verificaCarro())
+            {
+                HabilitarBotao();
+            }            
+        }
+
+        private void cancelar_Click(object sender, EventArgs e)
+        {
+            LimparTela();
+            DesahabilitarBotao();
+        }
+
+        private void btnConsultarCarro_Click(object sender, EventArgs e)
+        {
+            verificaCarro();
+
+        }
+
+        private void btnDevolverCarro_Click(object sender, EventArgs e)
+        {
+            
+            locarCarro.devolverVeiculo(nomeCondutorDevolverText.Text);
+            nomeCondutorDevolverText.Text = " ";
+            LimparTela();
         }
     }
 }

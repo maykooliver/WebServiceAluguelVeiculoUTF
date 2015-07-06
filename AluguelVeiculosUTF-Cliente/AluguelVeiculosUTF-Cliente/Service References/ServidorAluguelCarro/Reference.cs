@@ -15,6 +15,15 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://calc/", ConfigurationName="ServidorAluguelCarro.InterfaceServ")]
     public interface InterfaceServ {
         
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse consultarVeiculos(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
+        System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse> consultarVeiculosAsync(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest", ReplyAction="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -31,15 +40,6 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/novoClienteConectadoRequest", ReplyAction="http://calc/InterfaceServ/novoClienteConectadoResponse")]
         System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0);
         
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse consultarVeiculos(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/consultarVeiculosRequest", ReplyAction="http://calc/InterfaceServ/consultarVeiculosResponse")]
-        System.Threading.Tasks.Task<AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse> consultarVeiculosAsync(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/alugarVeicRequest", ReplyAction="http://calc/InterfaceServ/alugarVeicResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -49,15 +49,6 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<bool> alugarVeicAsync(string arg0, string arg1, string arg2, string arg3, string arg4, string arg5, string arg6, string arg7, int arg8, string arg9);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        bool regInteresseVeic(string arg0, float arg1);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -66,6 +57,24 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
         [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/devolverVeiculoRequest", ReplyAction="http://calc/InterfaceServ/devolverVeiculoResponse")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/verificaVeiculoRequest", ReplyAction="http://calc/InterfaceServ/verificaVeiculoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool verificaVeiculo(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/verificaVeiculoRequest", ReplyAction="http://calc/InterfaceServ/verificaVeiculoResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> verificaVeiculoAsync(string arg0);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        bool regInteresseVeic(string arg0, float arg1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://calc/InterfaceServ/regInteresseVeicRequest", ReplyAction="http://calc/InterfaceServ/regInteresseVeicResponse")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -124,22 +133,6 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
                 base(binding, remoteAddress) {
         }
         
-        public bool solicitacaoFormLocacao(string arg0) {
-            return base.Channel.solicitacaoFormLocacao(arg0);
-        }
-        
-        public System.Threading.Tasks.Task<bool> solicitacaoFormLocacaoAsync(string arg0) {
-            return base.Channel.solicitacaoFormLocacaoAsync(arg0);
-        }
-        
-        public void novoClienteConectado(string arg0) {
-            base.Channel.novoClienteConectado(arg0);
-        }
-        
-        public System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0) {
-            return base.Channel.novoClienteConectadoAsync(arg0);
-        }
-        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosResponse AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ.consultarVeiculos(AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.consultarVeiculosRequest request) {
             return base.Channel.consultarVeiculos(request);
@@ -161,6 +154,22 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
             return ((AluguelVeiculosUTF_Cliente.ServidorAluguelCarro.InterfaceServ)(this)).consultarVeiculosAsync(inValue);
         }
         
+        public bool solicitacaoFormLocacao(string arg0) {
+            return base.Channel.solicitacaoFormLocacao(arg0);
+        }
+        
+        public System.Threading.Tasks.Task<bool> solicitacaoFormLocacaoAsync(string arg0) {
+            return base.Channel.solicitacaoFormLocacaoAsync(arg0);
+        }
+        
+        public void novoClienteConectado(string arg0) {
+            base.Channel.novoClienteConectado(arg0);
+        }
+        
+        public System.Threading.Tasks.Task novoClienteConectadoAsync(string arg0) {
+            return base.Channel.novoClienteConectadoAsync(arg0);
+        }
+        
         public bool alugarVeic(string arg0, string arg1, string arg2, string arg3, string arg4, string arg5, string arg6, string arg7, int arg8, string arg9) {
             return base.Channel.alugarVeic(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
         }
@@ -169,20 +178,28 @@ namespace AluguelVeiculosUTF_Cliente.ServidorAluguelCarro {
             return base.Channel.alugarVeicAsync(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
         }
         
-        public bool regInteresseVeic(string arg0, float arg1) {
-            return base.Channel.regInteresseVeic(arg0, arg1);
-        }
-        
-        public System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1) {
-            return base.Channel.regInteresseVeicAsync(arg0, arg1);
-        }
-        
         public bool devolverVeiculo(string arg0) {
             return base.Channel.devolverVeiculo(arg0);
         }
         
         public System.Threading.Tasks.Task<bool> devolverVeiculoAsync(string arg0) {
             return base.Channel.devolverVeiculoAsync(arg0);
+        }
+        
+        public bool verificaVeiculo(string arg0) {
+            return base.Channel.verificaVeiculo(arg0);
+        }
+        
+        public System.Threading.Tasks.Task<bool> verificaVeiculoAsync(string arg0) {
+            return base.Channel.verificaVeiculoAsync(arg0);
+        }
+        
+        public bool regInteresseVeic(string arg0, float arg1) {
+            return base.Channel.regInteresseVeic(arg0, arg1);
+        }
+        
+        public System.Threading.Tasks.Task<bool> regInteresseVeicAsync(string arg0, float arg1) {
+            return base.Channel.regInteresseVeicAsync(arg0, arg1);
         }
     }
 }

@@ -229,18 +229,4 @@ public class Locador {
         this.receberNotificacao = receberNotificacao;
     }
 
-    /**
-     * @return the refCli
-     */
-//    public InterfaceCli getRefCli() {
-//        return refCli;
-//    }
-//
-//    /**
-//     * @param refCli the refCli to set
-//     */
-//    public void setRefCli(InterfaceCli refCli) {
-//        this.refCli = refCli;
-//    }
-    
 }

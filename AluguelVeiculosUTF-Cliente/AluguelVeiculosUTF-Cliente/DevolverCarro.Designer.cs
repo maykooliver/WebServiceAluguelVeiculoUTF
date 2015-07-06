@@ -71,6 +71,7 @@
             this.Controls.Add(this.label11);
             this.Name = "DevolverCarro";
             this.Text = "DevolverCarro";
+            this.Load += new System.EventHandler(this.DevolverCarro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

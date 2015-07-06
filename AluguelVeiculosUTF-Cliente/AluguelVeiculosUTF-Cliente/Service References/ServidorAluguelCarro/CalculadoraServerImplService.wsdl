@@ -5,6 +5,10 @@
       <xsd:import schemaLocation="http://127.0.0.1:9876/calc?xsd=1" namespace="http://jaxb.dev.java.net/array" />
     </xsd:schema>
   </types>
+  <message name="consultarVeiculos" />
+  <message name="consultarVeiculosResponse">
+    <part xmlns:ns1="http://jaxb.dev.java.net/array" name="return" type="ns1:stringArray" />
+  </message>
   <message name="solicitacaoFormLocacao">
     <part name="arg0" type="xsd:string" />
   </message>
@@ -15,10 +19,6 @@
     <part name="arg0" type="xsd:string" />
   </message>
   <message name="novoClienteConectadoResponse" />
-  <message name="consultarVeiculos" />
-  <message name="consultarVeiculosResponse">
-    <part xmlns:ns1="http://jaxb.dev.java.net/array" name="return" type="ns1:stringArray" />
-  </message>
   <message name="alugarVeic">
     <part name="arg0" type="xsd:string" />
     <part name="arg1" type="xsd:string" />
@@ -34,6 +34,18 @@
   <message name="alugarVeicResponse">
     <part name="return" type="xsd:boolean" />
   </message>
+  <message name="devolverVeiculo">
+    <part name="arg0" type="xsd:string" />
+  </message>
+  <message name="devolverVeiculoResponse">
+    <part name="return" type="xsd:boolean" />
+  </message>
+  <message name="verificaVeiculo">
+    <part name="arg0" type="xsd:string" />
+  </message>
+  <message name="verificaVeiculoResponse">
+    <part name="return" type="xsd:boolean" />
+  </message>
   <message name="regInteresseVeic">
     <part name="arg0" type="xsd:string" />
     <part name="arg1" type="xsd:float" />
@@ -41,13 +53,11 @@
   <message name="regInteresseVeicResponse">
     <part name="return" type="xsd:boolean" />
   </message>
-  <message name="devolverVeiculo">
-    <part name="arg0" type="xsd:string" />
-  </message>
-  <message name="devolverVeiculoResponse">
-    <part name="return" type="xsd:boolean" />
-  </message>
   <portType name="InterfaceServ">
+    <operation name="consultarVeiculos">
+      <input wsam:Action="http://calc/InterfaceServ/consultarVeiculosRequest" message="tns:consultarVeiculos" />
+      <output wsam:Action="http://calc/InterfaceServ/consultarVeiculosResponse" message="tns:consultarVeiculosResponse" />
+    </operation>
     <operation name="solicitacaoFormLocacao">
       <input wsam:Action="http://calc/InterfaceServ/solicitacaoFormLocacaoRequest" message="tns:solicitacaoFormLocacao" />
       <output wsam:Action="http://calc/InterfaceServ/solicitacaoFormLocacaoResponse" message="tns:solicitacaoFormLocacaoResponse" />
@@ -56,25 +66,34 @@
       <input wsam:Action="http://calc/InterfaceServ/novoClienteConectadoRequest" message="tns:novoClienteConectado" />
       <output wsam:Action="http://calc/InterfaceServ/novoClienteConectadoResponse" message="tns:novoClienteConectadoResponse" />
     </operation>
-    <operation name="consultarVeiculos">
-      <input wsam:Action="http://calc/InterfaceServ/consultarVeiculosRequest" message="tns:consultarVeiculos" />
-      <output wsam:Action="http://calc/InterfaceServ/consultarVeiculosResponse" message="tns:consultarVeiculosResponse" />
-    </operation>
     <operation name="alugarVeic" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9">
       <input wsam:Action="http://calc/InterfaceServ/alugarVeicRequest" message="tns:alugarVeic" />
       <output wsam:Action="http://calc/InterfaceServ/alugarVeicResponse" message="tns:alugarVeicResponse" />
-    </operation>
-    <operation name="regInteresseVeic" parameterOrder="arg0 arg1">
-      <input wsam:Action="http://calc/InterfaceServ/regInteresseVeicRequest" message="tns:regInteresseVeic" />
-      <output wsam:Action="http://calc/InterfaceServ/regInteresseVeicResponse" message="tns:regInteresseVeicResponse" />
     </operation>
     <operation name="devolverVeiculo">
       <input wsam:Action="http://calc/InterfaceServ/devolverVeiculoRequest" message="tns:devolverVeiculo" />
       <output wsam:Action="http://calc/InterfaceServ/devolverVeiculoResponse" message="tns:devolverVeiculoResponse" />
     </operation>
+    <operation name="verificaVeiculo">
+      <input wsam:Action="http://calc/InterfaceServ/verificaVeiculoRequest" message="tns:verificaVeiculo" />
+      <output wsam:Action="http://calc/InterfaceServ/verificaVeiculoResponse" message="tns:verificaVeiculoResponse" />
+    </operation>
+    <operation name="regInteresseVeic" parameterOrder="arg0 arg1">
+      <input wsam:Action="http://calc/InterfaceServ/regInteresseVeicRequest" message="tns:regInteresseVeic" />
+      <output wsam:Action="http://calc/InterfaceServ/regInteresseVeicResponse" message="tns:regInteresseVeicResponse" />
+    </operation>
   </portType>
   <binding name="ServImplPortBinding" type="tns:InterfaceServ">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="consultarVeiculos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://calc/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://calc/" />
+      </output>
+    </operation>
     <operation name="solicitacaoFormLocacao">
       <soap:operation soapAction="" />
       <input>
@@ -85,15 +104,6 @@
       </output>
     </operation>
     <operation name="novoClienteConectado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" namespace="http://calc/" />
-      </input>
-      <output>
-        <soap:body use="literal" namespace="http://calc/" />
-      </output>
-    </operation>
-    <operation name="consultarVeiculos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" namespace="http://calc/" />
@@ -111,7 +121,7 @@
         <soap:body use="literal" namespace="http://calc/" />
       </output>
     </operation>
-    <operation name="regInteresseVeic">
+    <operation name="devolverVeiculo">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" namespace="http://calc/" />
@@ -120,7 +130,16 @@
         <soap:body use="literal" namespace="http://calc/" />
       </output>
     </operation>
-    <operation name="devolverVeiculo">
+    <operation name="verificaVeiculo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://calc/" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://calc/" />
+      </output>
+    </operation>
+    <operation name="regInteresseVeic">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" namespace="http://calc/" />
